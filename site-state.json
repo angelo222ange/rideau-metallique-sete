@@ -30,7 +30,7 @@
     "dark_bg": "#0A2A33",
     "light_bg": "#F4F1EC"
   },
-  "current_phase": 2,
+  "current_phase": 7,
   "phases": {
     "0": {
       "status": "completed",
@@ -126,8 +126,29 @@
       "completed_at": null
     },
     "7": {
-      "status": "pending",
-      "completed_at": null
+      "status": "completed",
+      "completed_at": "2026-05-27T07:45:00Z",
+      "github_repo": "angelo222ange/rideau-metallique-sete",
+      "github_visibility": "public",
+      "vps": "deploy@176.31.163.195",
+      "live_url": "https://depannage-rideau-metallique-sete.fr",
+      "ssl": "Let's Encrypt OK (expires 2026-08-25)",
+      "ssl_issuer": "C=US, O=Let's Encrypt, CN=E8",
+      "deploy_mode": "static",
+      "nginx_conf": "/etc/nginx/sites-available/rideau-metallique-sete",
+      "deploy_dir": "/var/www/rideau-metallique-sete",
+      "gsc_verified": true,
+      "gsc_token": "VdQHV91XkdcWk9Qu-JlQPzNtmkxs9QWEp1eJhAIbAOI",
+      "gsc_method": "META",
+      "sitemap_submitted": true,
+      "sitemap_url": "https://depannage-rideau-metallique-sete.fr/sitemap.xml",
+      "sitemap_urls_count": 199,
+      "mail_redirects": "NOT_CONFIGURED — domain not on configured OVH accounts (angelo/lokalio). Likely on a 3rd OVH account (OVH3_*) — Angelo to add creds or configure manually",
+      "dns_status": "OK — A record already configured by Angelo before session (resolves to 176.31.163.195)",
+      "dns_account": "unknown (not angelo, not lokalio on Zuply env)",
+      "zuply_db_site_id": "cmpnrasui0000pgmstsldikb7",
+      "pages_live_200": ["/", "/depannage-rideau-metallique-sete/", "/installation-rideau-metallique-sete/", "/reparation-rideau-metallique-sete/", "/motorisation-rideau-metallique-sete/", "/depannage-rideau-metallique-frontignan/", "/depannage-rideau-metallique-meze/", "/contact/", "/zones/", "/blog/", "/mentions-legales/", "/sitemap.xml"],
+      "address_to_validate_by_angelo": "1174 Boulevard Jean-Mathieu Grangent, 34200 Sète (find-gbp auto-pick #1)"
     }
   },
   "pages_validated": {
