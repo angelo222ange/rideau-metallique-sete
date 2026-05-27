@@ -1,0 +1,64 @@
+{
+  "template_id": "template-17",
+  "template_name": "Roofinity",
+  "template_source": "https://roofinity.framer.website/",
+  "ville": "Sète",
+  "ville_slug": "sete",
+  "departement": "Hérault",
+  "departement_code": "34",
+  "region": "Occitanie",
+  "code_postal": "34200",
+  "telephone": "",
+  "telephone_public": false,
+  "domaine": "depannage-rideau-metallique-sete.fr",
+  "hero_bg_file": "hero-grille-extensible.webp",
+  "section_mapping": {
+    "hero": "hero",
+    "about": "presentation",
+    "services": "services_drm",
+    "process": "methode_depannage",
+    "team": "zones_intervention",
+    "gallery": "realisations",
+    "testimonials": "avis_google",
+    "faq": "faq_drm",
+    "blog": "blog",
+    "pricing": null,
+    "cta": "cta_urgence",
+    "partners": "logos_confiance",
+    "counter": "stats_confiance"
+  },
+  "missing_sections": [
+    "partners_carousel",
+    "stats_counter",
+    "google_reviews_logo",
+    "marques_logos"
+  ],
+  "design_tokens": {
+    "colors": {
+      "primary": "#0E4F5C",
+      "accent": "#E8633E",
+      "light_bg": "#F4F1EC",
+      "dark_bg": "#0A2A33"
+    },
+    "fonts": {
+      "heading": "Manrope",
+      "body": "Inter"
+    },
+    "layout": {
+      "max_width": 1280,
+      "section_padding": "96px 30px",
+      "card_radius": 10,
+      "button_radius": 5
+    }
+  },
+  "palette": {
+    "inspiration": "Sète — Méditerranée + étang de Thau (teal #0E4F5C bleu lagune profond) + accent corail/terracotta #E8633E (urgence DRM + tuiles Sud). Évoque la Venise du Languedoc, port de pêche, conchyliculture.",
+    "primary": "#0E4F5C",
+    "accent": "#E8633E",
+    "light_bg": "#F4F1EC",
+    "dark_bg": "#0A2A33"
+  },
+  "adresse_interim": "1174 Boulevard Jean-Mathieu Grangent, 34200 Sète",
+  "adresse_validee_angelo": false,
+  "created_at": "2026-05-26"
+}

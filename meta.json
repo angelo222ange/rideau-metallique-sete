@@ -1,0 +1,88 @@
+{
+  "id": "template-17",
+  "name": "Roofinity",
+  "source": "https://roofinity.framer.website/",
+  "style": "renovation-orange-teal",
+  "vertical": "renovation-maison",
+  "match_score": 100,
+  "origin": "Pixel-perfect clone of roofinity.framer.website. Niche couvreur/toiture — exploitable pour pages metiers RNM toiture/charpente/isolation-toiture.",
+  "sections": [
+    "hero-bg-image-form",
+    "about-stat-card-checks",
+    "process-3col-numbered-steps",
+    "service-4-stacked-alternating-cards",
+    "mini-cta-fullbleed-bg",
+    "works-2x2-project-gallery",
+    "review-4-cards-avatar",
+    "faq-2col-accordion",
+    "article-3-card-blog",
+    "footer-cta-bg-4col-links"
+  ],
+  "colors": {
+    "primary": "#FC5F2A",
+    "primary_hover": "#B8360B",
+    "accent_teal": "#085B69",
+    "dark": "#060607",
+    "bg": "#FFFFFF",
+    "bg_alt": "#F1F4F7",
+    "bg_dark": "#085B69",
+    "text": "#060607",
+    "text_muted": "#4a4a4a",
+    "border": "rgba(0, 0, 0, 0.08)"
+  },
+  "fonts": {
+    "heading": "Manrope",
+    "body": "Inter"
+  },
+  "typography": {
+    "h1": "80px / 84px / -2.4px / Manrope 500",
+    "h2": "56px / 61.6px / -1.68px / Manrope 500",
+    "body": "16px / 25.6px / -0.16px / Inter 400"
+  },
+  "features": [
+    "horizontal hero form with bg image + dark gradient",
+    "alternating image-text service cards (4 stacked)",
+    "full-bleed CTA banner with bg image",
+    "2x2 project gallery hover-zoom",
+    "5 yellow-stars review cards rotating 3 avatars",
+    "click-driven FAQ accordion stateful",
+    "fixed sticky white nav 76px",
+    "teal #085B69 footer with 4 cols + roof bg CTA",
+    "scroll fade-up animations via CSS",
+    "responsive desktop/tablet/mobile (clamp + Tailwind v4)"
+  ],
+  "pages": [
+    "page.tsx (homepage)",
+    "about/page.tsx",
+    "service/page.tsx",
+    "services-details/[slug]/page.tsx (4 services)",
+    "blog/page.tsx",
+    "blog-details/[slug]/page.tsx (6 posts)",
+    "contact/page.tsx",
+    "legal/privacy-policy/page.tsx",
+    "legal/terms-conditions/page.tsx"
+  ],
+  "shared_components": [
+    "Header.tsx (sticky 76px nav)",
+    "Footer.tsx (CTA banner + 4-col)",
+    "PageHeader.tsx (440px hero on internal pages)"
+  ],
+  "assets": {
+    "total": 52,
+    "format": "WebP (q80 m6) + SVG",
+    "structure": {
+      "keep/": "22 roofing/couvreur photos — REUSE for renovation-toiture, charpente, isolation-toiture, couvreur metier pages. ALL service cards on homepage use these.",
+      "icons/": "17 functional SVGs — keep as-is",
+      "avatars/": "9 avatars (3 reviewer + 6 team) — replace with our generated/stock per site",
+      "brand/": "logo header/footer SVGs + favicon — replace with site brand per site"
+    }
+  },
+  "notes": [
+    "Cloned from roofinity.framer.website (Framer roofing services template)",
+    "Bucket A (keep/) photos = professional roofing photography we cannot reproduce — preserved for our renovation-toiture, couvreur, charpente, isolation-toiture pages and toiture-related blog articles",
+    "Bucket B (replace/) deleted — original template had 3 off-theme placeholders (woman/chairs/etc) that we removed. Service cards on homepage now use keep/ photos exclusively for visual coherence",
+    "No Gemini AI infrastructure (visualizer / before-after carousel) bundled — pure design clone. Greffe manually if needed by importing components from template-15 or template-16",
+    "Designed to ranks #1 visual quality + clean SEO via Manrope+Inter typography + 100px section padding",
+    "All routes prerender as static (next build)"
+  ]
+}
