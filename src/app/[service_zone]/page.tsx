@@ -14,11 +14,10 @@ const citySlug = siteConfig.citySlug;
 
 export function generateStaticParams() {
   const params: { service_zone: string }[] = [];
+  // REGLE 6.8 : services × zones uniquement (pas service-{citySlug} qui cannibalise la home).
   for (const s of services) {
-    // service x city principale
-    params.push({ service_zone: `${s.slug}-${citySlug}` });
-    // service x chaque zone
     for (const z of zones) {
+      if (z.slug === citySlug) continue;
       params.push({ service_zone: generateSlug(s.slug, z.slug) });
     }
   }
@@ -37,14 +36,28 @@ export async function generateMetadata({
   const zoneName = parsed.zone ? parsed.zone.name : siteConfig.city;
   const zoneCp = parsed.zone ? parsed.zone.postalCode : siteConfig.postalCode;
   // Pas de suffixe ici — layout.tsx ajoute "| DRM Sète" via metadata.title.template
-  const title = `${parsed.service.name} rideau métallique ${zoneName} (${zoneCp})`;
+  // Cible <= 65c total. "| DRM Sète" ajoute 11 caractères -> base <= 54.
+  const baseTitle = `${parsed.service.name} rideau métallique ${zoneName} (${zoneCp})`;
+  const titleNoCp = `${parsed.service.name} rideau métallique ${zoneName}`;
+  // Zone longue (ex. Villeneuve-lès-Maguelone) : on garde aussi court qu'on peut.
+  // Si meme sans CP > 54, on bypass le template suffix en ajoutant " — DRM Sète" inline
+  // -- mais Next.js title template ajoute "| DRM Sète" via layout, donc on doit faire confiance au format final.
+  // Solution : pour les zones >= 24c, on retire le CP ET on garde la base. Total max attendu ~ 67c (toleré par Google).
+  const title = baseTitle.length > 54 ? titleNoCp : baseTitle;
   const description = isVille
-    ? `${parsed.service.name} de rideau métallique à ${zoneName} ${zoneCp} : intervention 24h/24, devis gratuit, garantie 2 ans. DRM Sète intervient en moins de 30 min sur tout le Bassin de Thau.`
-    : `${parsed.service.name} de rideau métallique à ${zoneName} ${zoneCp} : intervention 24h/24, devis gratuit, garantie 2 ans. DRM Sète intervient en moins de 30 minutes.`;
+    ? `${parsed.service.name} de rideau métallique à ${zoneName} ${zoneCp} : intervention 24h/24, devis gratuit, garantie 2 ans, Bassin de Thau.`
+    : `${parsed.service.name} de rideau métallique à ${zoneName} ${zoneCp} : intervention 24h/24, devis gratuit, garantie 2 ans.`;
+  // Anti-cannibalisation home : pour les pages service x ville-principale (isVille),
+  // canonical = home + noindex (mémoire feedback_drm_cannibalisation_home_service)
+  const canonical = isVille ? `${siteConfig.url}/` : `${siteConfig.url}/${service_zone}/`;
+  const robots = isVille
+    ? { index: false, follow: true, googleBot: { index: false, follow: true } }
+    : undefined;
   return {
     title,
     description: description.slice(0, 158),
-    alternates: { canonical: `${siteConfig.url}/${service_zone}/` },
+    alternates: { canonical },
+    robots,
     openGraph: {
       title,
       description,
@@ -239,7 +252,8 @@ export default async function ServiceZonePage({
               priority
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/30 to-black/60" aria-hidden />
+            <div className="absolute inset-0" style={{ background: "rgba(10, 31, 38, 0.70)" }} aria-hidden />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/55 to-black/85" aria-hidden />
             <div className="relative z-10 flex flex-col items-center justify-center text-center px-5 md:px-10 py-16 md:py-20 min-h-[440px] md:min-h-[520px]">
               <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-white/80 text-[13px] mb-5">
                 <Link href="/" className="hover:text-white">Accueil</Link>
@@ -256,18 +270,21 @@ export default async function ServiceZonePage({
               </nav>
               <h1
                 className="text-white max-w-[920px] text-[34px] md:text-[44px] lg:text-[52px] leading-[1.05]"
-                style={{ fontWeight: 500, fontFamily: "var(--font-manrope)", letterSpacing: "-1.2px" }}
+                style={{ fontWeight: 500, fontFamily: "var(--font-manrope)", letterSpacing: "-1.2px", color: "#FFFFFF", textShadow: "0 2px 12px rgba(0,0,0,0.6)" }}
               >
                 {isVille ? content.h1 : `${service.name} de rideau métallique à ${zoneName}`}
               </h1>
-              <p className="text-white/85 text-[16px] md:text-[18px] leading-[1.6] mt-5 max-w-[720px]">
+              <p
+                className="text-white/90 text-[16px] md:text-[18px] leading-[1.6] mt-5 max-w-[720px]"
+                style={{ textShadow: "0 2px 8px rgba(0,0,0,0.55)" }}
+              >
                 Intervention 24h/24 sur {zoneName} ({zoneCp}) — devis gratuit, garantie 2 ans pièces, techniciens DRM certifiés air marin Méditerranée.
               </p>
               <Link
                 href={siteConfig.telephoneHref}
                 className="inline-flex items-center justify-center h-11 px-6 mt-7 bg-[#E8633E] hover:bg-[#C44A26] text-white text-[14px] font-medium rounded-[5px] transition-colors"
               >
-                Demander un devis gratuit
+                Appeler 04 48 14 12 98
               </Link>
             </div>
           </div>
@@ -357,7 +374,7 @@ export default async function ServiceZonePage({
                   href={siteConfig.telephoneHref}
                   className="inline-flex items-center justify-center h-11 px-5 bg-[#E8633E] hover:bg-[#C44A26] text-white text-[14px] font-medium rounded-[5px] transition-colors"
                 >
-                  Demander un devis
+                  Appeler 04 48 14 12 98
                 </Link>
                 <Link
                   href="/contact/"
@@ -683,7 +700,7 @@ export default async function ServiceZonePage({
                 href={siteConfig.telephoneHref}
                 className="inline-flex items-center justify-center h-11 px-5 bg-[#E8633E] hover:bg-[#C44A26] text-white text-[14px] font-medium rounded-[5px] transition-colors"
               >
-                Demander un devis sur {zoneName}
+                Appeler 04 48 14 12 98
               </Link>
             </div>
           </div>
@@ -846,7 +863,7 @@ export default async function ServiceZonePage({
               href={siteConfig.telephoneHref}
               className="inline-flex items-center justify-center h-12 px-6 bg-[#E8633E] hover:bg-[#C44A26] text-white text-[15px] font-medium rounded-[5px] transition-colors whitespace-nowrap"
             >
-              Demander un devis immédiat
+              Appeler 04 48 14 12 98
             </Link>
           </div>
         </section>
