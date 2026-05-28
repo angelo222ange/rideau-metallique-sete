@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Inter, Manrope } from "next/font/google";
 import { siteConfig } from "@/config/site";
+import ScrollToTop from "@/components/ScrollToTop";
 import "./globals.css";
 
 const inter = Inter({
@@ -131,6 +132,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           </svg>
           Appeler 04 48 14 12 98
         </Link>
+              <ScrollToTop />
       </body>
     </html>
   );

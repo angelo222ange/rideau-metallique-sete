@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { siteConfig, services } from "@/config/site";
-import { serviceImages } from "@/lib/page-images";
+import { serviceImages, gal } from "@/lib/page-images";
 
 const citySlug = siteConfig.citySlug;
 
@@ -84,17 +84,17 @@ export default function Header() {
               <div className="bg-white rounded-[10px] shadow-2xl border border-black/5 p-2">
                 <div className="grid grid-cols-1 gap-0.5">
                   {services.map((s) => {
-                    const img = serviceImages[s.id]?.hero || "depannage-rideau-metallique-DRM-reparation.webp";
+                    const img = serviceImages[s.id]?.hero || "hero-bg-technicien-drm.webp";
                     return (
                       <Link
                         key={s.id}
-                        href={`/${s.slug}-${citySlug}/`}
-                        className="group/item flex items-center gap-3 px-3 py-2.5 rounded-[8px] hover:bg-[#F4F1EC] transition-colors"
+                        href={`/#services`}
+                        className="group/item flex items-center gap-3 px-3 py-2.5 rounded-[5px] hover:bg-[#F4F1EC] transition-colors"
                       >
                         <span
-                          className="flex-shrink-0 w-12 h-12 rounded-[6px] overflow-hidden bg-[#F4F1EC]"
+                          className="flex-shrink-0 w-12 h-12 rounded-[5px] overflow-hidden bg-[#F4F1EC]"
                           style={{
-                            backgroundImage: `url(/images/gallery/${img})`,
+                            backgroundImage: "url(" + gal(img) + ")",
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                           }}
@@ -182,7 +182,7 @@ export default function Header() {
                 {services.map((s) => (
                   <Link
                     key={s.id}
-                    href={`/${s.slug}-${citySlug}/`}
+                    href={`/#services`}
                     onClick={() => setOpen(false)}
                     className="text-[13px] text-[#4A5560] py-2"
                   >

@@ -75,7 +75,7 @@ export default function AboutSection() {
           {stats.map((s) => (
             <li
               key={s.label}
-              className="bg-[#0E4F5C] rounded-[8px] p-5 md:p-7 flex flex-col gap-2 min-h-[140px] justify-center"
+              className="bg-[#0E4F5C] rounded-[5px] p-5 md:p-7 flex flex-col gap-2 min-h-[140px] justify-center"
             >
               <span
                 className="text-white text-[40px] md:text-[52px] lg:text-[60px] leading-none"

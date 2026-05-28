@@ -6,7 +6,7 @@ export default function HomepageSEOBlock3() {
       <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         <div className="relative w-full h-[320px] md:h-[420px] lg:h-[500px] rounded-[10px] overflow-hidden order-2 lg:order-1">
           <Image
-            src="/images/gallery/BI-Moteur-ACM-76-rideau-metallique.webp"
+            src="/images/gallery/moteur-tubulaire-rideau-metallique-drm.webp"
             alt="Moteur central ACM 76 — pièce d'origine constructeur DRM Sète"
             title="Moteur ACM 76 — DRM Sète"
             fill

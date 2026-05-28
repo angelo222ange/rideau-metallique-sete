@@ -1,34 +1,34 @@
 import Image from "next/image";
-import { realisationsPool } from "@/lib/page-images";
+import { realisationsPool, gal } from "@/lib/page-images";
 
 const projects = [
   {
-    img: `/images/gallery/${realisationsPool[1]}`,
+    img: gal(realisationsPool[1]),
     title: "Rideau métallique lame pleine — bar à tapas",
     location: "Sète Quartier Haut · 34200",
   },
   {
-    img: `/images/gallery/${realisationsPool[5]}`,
+    img: gal(realisationsPool[5]),
     title: "Motorisation ACM 76 — restaurant de l'étang",
     location: "Mèze · 34140",
   },
   {
-    img: `/images/gallery/${realisationsPool[7]}`,
+    img: gal(realisationsPool[7]),
     title: "Rideau polycarbonate — boulangerie de plage",
     location: "Marseillan-Plage · 34340",
   },
   {
-    img: `/images/gallery/${realisationsPool[11]}`,
+    img: gal(realisationsPool[11]),
     title: "Grille extensible — boutique de mode",
     location: "Frontignan Centre · 34110",
   },
   {
-    img: `/images/gallery/${realisationsPool[3]}`,
+    img: gal(realisationsPool[3]),
     title: "Rideau métallique entrepôt conchylicole",
     location: "Bouzigues · 34140",
   },
   {
-    img: `/images/gallery/${realisationsPool[9]}`,
+    img: gal(realisationsPool[9]),
     title: "Grille cobra — bijouterie centre-ville",
     location: "Agde · 34300",
   },

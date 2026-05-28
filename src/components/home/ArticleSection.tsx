@@ -10,7 +10,7 @@ const articles = [
     alt: "Entretien d'un rideau métallique sur le littoral méditerranéen",
   },
   {
-    img: "/images/gallery/BI-Moteur-ACM-76-rideau-metallique-coter.webp",
+    img: "/images/gallery/moteur-tubulaire-rideau-metallique-drm.webp",
     title: "Choisir entre un moteur ACM 76 et un Somfy tubulaire pour son commerce",
     date: "28 avril 2026",
     slug: "choisir-moteur-acm-somfy-rideau-metallique",

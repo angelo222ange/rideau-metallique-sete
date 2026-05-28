@@ -49,8 +49,8 @@ export default function PlanDuSitePage() {
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 {services.map((s) => (
                   <li key={s.id}>
-                    <Link className="text-[#0E4F5C] hover:text-[#E8633E]" href={`/${s.slug}-${citySlug}/`}>
-                      {s.name} de rideau métallique à Sète
+                    <Link className="text-[#0E4F5C] hover:text-[#E8633E]" href={`/${s.slug}-${zones[0].slug}/`}>
+                      {s.name} de rideau métallique — {zones[0].name}
                     </Link>
                   </li>
                 ))}

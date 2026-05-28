@@ -30,7 +30,7 @@ export default function ZonesSection() {
             <li key={z.slug}>
               <Link
                 href={`/depannage-rideau-metallique-${z.slug}/`}
-                className="block bg-[#F4F1EC] hover:bg-[#0E4F5C] hover:text-white rounded-[8px] p-4 md:p-5 transition-colors group"
+                className="block bg-[#F4F1EC] hover:bg-[#0E4F5C] hover:text-white rounded-[5px] p-4 md:p-5 transition-colors group"
               >
                 <span className="block text-[#0A1F26] group-hover:text-white text-[14px] md:text-[15px] font-medium leading-tight">
                   {z.name}

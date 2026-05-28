@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { services, siteConfig } from "@/config/site";
+import { gal } from "@/lib/page-images";
 
 const trustBadges = [
   { icon: "★", value: "4.9/5", label: "112 avis Google" },
@@ -19,7 +20,7 @@ export default function HeroSection() {
     <section className="relative w-full px-2 md:px-[10px] pt-2 md:pt-[10px]">
       <div className="relative w-full overflow-hidden rounded-[10px] min-h-[640px] md:min-h-[720px] lg:min-h-[760px]">
         <Image
-          src={`/images/gallery/${siteConfig.heroBg}`}
+          src={gal(siteConfig.heroBg)}
           alt="Technicien DRM Sète en intervention dépannage rideau métallique 24h/24"
           title="Dépannage rideau métallique 24h/24 à Sète — intervention en 30 minutes"
           fill

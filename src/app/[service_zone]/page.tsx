@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 import { siteConfig, services, zones } from "@/config/site";
 import { parseSlug, generateSlug } from "@/lib/content";
 import { generateServicePageContent, getZoneLocalData, generateZoneNarrative } from "@/lib/service-content";
-import { serviceImages, getRealisationForZone } from "@/lib/page-images";
+import { serviceImages, getRealisationForZone, gal } from "@/lib/page-images";
 
 const citySlug = siteConfig.citySlug;
 
@@ -63,7 +63,7 @@ export async function generateMetadata({
       description,
       images: [
         {
-          url: `/images/gallery/${serviceImages[parsed.service.id]?.hero || "hero-grille-extensible.webp"}`,
+          url: gal(serviceImages[parsed.service.id]?.hero || "hero-grille-extensible.webp"),
           width: 1200,
           height: 630,
           alt: `${parsed.service.name} rideau métallique à ${zoneName}`,
@@ -244,7 +244,7 @@ export default async function ServiceZonePage({
         <section className="relative w-full px-2 md:px-[10px] pt-2 md:pt-[10px]">
           <div className="relative w-full overflow-hidden rounded-[10px] min-h-[440px] md:min-h-[520px]">
             <Image
-              src={`/images/gallery/${imgs.hero}`}
+              src={gal(imgs.hero)}
               alt={`${service.name} de rideau métallique à ${zoneName} (${zoneCp}) — technicien DRM`}
               title={`${service.name} rideau métallique ${zoneName}`}
               fill
@@ -348,7 +348,7 @@ export default async function ServiceZonePage({
           <div className="max-w-[1180px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div className="relative w-full h-[300px] md:h-[420px] rounded-[10px] overflow-hidden">
               <Image
-                src={`/images/gallery/${imgs.intro}`}
+                src={gal(imgs.intro)}
                 alt={`${service.name} rideau métallique à ${zoneName} — intervention DRM Sète`}
                 title={`${service.name} rideau métallique — ${zoneName}`}
                 fill
@@ -378,7 +378,7 @@ export default async function ServiceZonePage({
                 </Link>
                 <Link
                   href="/contact/"
-                  className="inline-flex items-center justify-center h-11 px-5 bg-white border border-[#0E4F5C] text-[#0E4F5C] hover:bg-[#0E4F5C] hover:text-white text-[14px] font-medium rounded-[5px] transition-colors"
+                  className="inline-flex items-center justify-center h-11 px-5 bg-[#FFFFFF] border border-[#0E4F5C] text-[#0E4F5C] hover:bg-[#0E4F5C] hover:text-[#FFFFFF] text-[14px] font-medium rounded-[5px] transition-colors"
                 >
                   Nous écrire
                 </Link>
@@ -407,7 +407,7 @@ export default async function ServiceZonePage({
                   key={i}
                   className="bg-white rounded-[10px] p-6 md:p-7 flex flex-col gap-3 shadow-[0_1px_2px_rgba(10,31,38,0.04)] hover:shadow-[0_4px_16px_rgba(10,31,38,0.08)] transition-shadow"
                 >
-                  <div className="w-12 h-12 rounded-[8px] bg-[#E8633E]/10 text-[#E8633E] flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-[5px] bg-[#E8633E]/10 text-[#E8633E] flex items-center justify-center">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
                     </svg>
@@ -439,7 +439,7 @@ export default async function ServiceZonePage({
                 >
                   <div className="relative w-full lg:w-[560px] h-[260px] md:h-[360px] lg:h-[400px] rounded-[10px] overflow-hidden shrink-0">
                     <Image
-                      src={`/images/gallery/${blockImg}`}
+                      src={gal(blockImg)}
                       alt={`${service.name} rideau métallique ${zoneName} — illustration ${idx + 1}`}
                       title={`${service.name} ${zoneName} — détail ${idx + 1}`}
                       fill
@@ -490,7 +490,7 @@ export default async function ServiceZonePage({
                   key={i}
                   className="bg-white/5 backdrop-blur-sm rounded-[10px] p-6 md:p-7 flex flex-col gap-3 border border-white/10"
                 >
-                  <div className="w-11 h-11 rounded-[8px] bg-[#E8633E] text-white flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-[5px] bg-[#E8633E] text-white flex items-center justify-center">
                     <Icon name={p.icon} />
                   </div>
                   <h3 className="text-white text-[17px]" style={{ fontWeight: 600, fontFamily: "var(--font-manrope)" }}>
@@ -669,7 +669,7 @@ export default async function ServiceZonePage({
           <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div className="relative w-full h-[300px] md:h-[420px] rounded-[10px] overflow-hidden">
               <Image
-                src={`/images/gallery/${realisationImg}`}
+                src={gal(realisationImg)}
                 alt={`Réalisation ${service.name.toLowerCase()} rideau métallique à ${zoneName} par DRM Sète`}
                 title={`Réalisation ${service.name} ${zoneName}`}
                 fill
@@ -758,7 +758,9 @@ export default async function ServiceZonePage({
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
               {otherServices.map((s) => {
                 const sImgs = serviceImages[s.id] || serviceImages.depannage;
-                const targetSlug = isVille ? `${s.slug}-${citySlug}` : `${s.slug}-${zoneSlug}`;
+                // Pages /{service}-{citySlug}/ supprimées (cannibalisation home) — fallback sur zone courante,
+                // ou sur zones[0] si on est sur la ville-principale (cas légacy, ne devrait plus arriver).
+                const targetSlug = isVille ? `${s.slug}-${zones[0].slug}` : `${s.slug}-${zoneSlug}`;
                 return (
                   <Link
                     key={s.id}
@@ -767,7 +769,7 @@ export default async function ServiceZonePage({
                   >
                     <div className="relative w-full h-[180px]">
                       <Image
-                        src={`/images/gallery/${sImgs.intro}`}
+                        src={gal(sImgs.intro)}
                         alt={`${s.name} rideau métallique ${zoneName} — DRM`}
                         title={`${s.name} rideau métallique ${zoneName}`}
                         fill
@@ -822,7 +824,7 @@ export default async function ServiceZonePage({
                 <Link
                   key={z.slug}
                   href={`/${service.slug}-${z.slug}/`}
-                  className="inline-flex items-center gap-2 bg-white hover:bg-[#0E4F5C] hover:text-white px-4 py-2.5 rounded-full text-[#0A1F26] text-[14px] transition-colors"
+                  className="inline-flex items-center gap-2 bg-[#FFFFFF] hover:bg-[#0E4F5C] hover:text-[#FFFFFF] px-4 py-2.5 rounded-full text-[#0A1F26] text-[14px] transition-colors"
                   aria-label={`${service.name} rideau métallique dans la commune de ${z.name}`}
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -842,6 +844,41 @@ export default async function ServiceZonePage({
                 Voir toutes nos zones d&apos;intervention
               </Link>
             </div>
+          </div>
+        </section>
+
+        {/* 12.5 Carte zone d'intervention (OSM embed) — REGLE 6.7.G */}
+        <section className="bg-white py-12 md:py-16 px-5 md:px-10" aria-labelledby="service-zone-map-heading">
+          <div className="max-w-[1280px] mx-auto flex flex-col gap-6">
+            <div className="flex flex-col gap-2 max-w-[820px]">
+              <span className="inline-block self-start bg-[#F4F1EC] px-[14px] py-1.5 rounded-full text-[12px] tracking-[0.2em] uppercase text-[#4A5560]">
+                Zone d&apos;intervention
+              </span>
+              <h2
+                id="service-zone-map-heading"
+                className="text-[#0A1F26]"
+                style={{ fontWeight: 500, letterSpacing: "-1.4px", fontFamily: "var(--font-manrope)", fontSize: "clamp(22px, 2.6vw, 32px)" }}
+              >
+                Carte d&apos;intervention DRM Sète à {zoneName}
+              </h2>
+              <p className="text-[#4A5560] text-[15px] md:text-[16px] leading-[1.6]">
+                Notre technicien rejoint {zoneName} en 30 minutes pour toute urgence rideau métallique : déblocage, dépannage, motorisation, fabrication express.
+              </p>
+            </div>
+            <div className="relative w-full h-[320px] md:h-[420px] rounded-[10px] overflow-hidden border border-[#0A1F26]/10">
+              <iframe
+                src={`https://www.openstreetmap.org/export/embed.html?bbox=3.6%2C43.35%2C3.75%2C43.45&layer=mapnik&marker=43.4045%2C3.6968`}
+                title={`Carte d'intervention DRM Sète à ${zoneName}`}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+                style={{ border: 0 }}
+                aria-label={`Zone d'intervention rideau métallique à ${zoneName}`}
+              />
+            </div>
+            <p className="text-[#4A5560] text-[13px] leading-[1.5]">
+              Source : <a href="https://www.openstreetmap.org/?mlat=43.4045&mlon=3.6968#map=12/43.4045/3.6968" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#0E4F5C]">OpenStreetMap</a> · Sète Agglopôle Méditerranée, Hérault (34).
+            </p>
           </div>
         </section>
 

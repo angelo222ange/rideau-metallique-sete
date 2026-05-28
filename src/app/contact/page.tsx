@@ -64,7 +64,7 @@ export default function ContactPage() {
       <main>
         <PageHeader
           title="Demandez un devis gratuit"
-          bgImage="/images/gallery/depannage-rideau-metallique-DRM-reparation.webp"
+          bgImage="/images/gallery/depannage-rideau-metallique-drm-reparation.webp"
           breadcrumb={[
             { label: "Accueil", href: "/" },
             { label: "Contact" },

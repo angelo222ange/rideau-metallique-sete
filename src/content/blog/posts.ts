@@ -137,7 +137,7 @@ export const posts: BlogPost[] = [
     metaDescription:
       "Comparatif moteur ACM 76 vs Somfy tubulaire pour rideau métallique commerce : poids supporté, bruit, prix, fiabilité, recommandations DRM Sète.",
     date: "28 avril 2026",
-    img: "/images/gallery/BI-Moteur-ACM-76-rideau-metallique.webp",
+    img: "/images/gallery/moteur-tubulaire-rideau-metallique-drm.webp",
     excerpt:
       "Le débat revient à chaque devis de motorisation : faut-il privilégier un moteur central ACM 76 ou un tubulaire Somfy ? Voici les critères pour trancher selon votre commerce.",
     author: "Équipe DRM Sète",

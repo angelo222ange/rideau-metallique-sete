@@ -76,7 +76,7 @@ export default function Footer() {
               {services.map((s) => (
                 <li key={s.id}>
                   <Link
-                    href={`/${s.slug}-${citySlug}/`}
+                    href={`/#services`}
                     className="text-white/70 text-[14px] hover:text-white transition-colors"
                   >
                     {s.name} de rideau métallique

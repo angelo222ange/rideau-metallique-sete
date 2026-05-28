@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { siteConfig, services } from "@/config/site";
-import { serviceImages } from "@/lib/page-images";
+import { services, zones } from "@/config/site";
+import { serviceImages, gal } from "@/lib/page-images";
 
-const citySlug = siteConfig.citySlug;
+// Lien par défaut : Sète Centre (zone urbaine principale, indexable — pas de cannibalisation home)
+const defaultZoneSlug = zones[0].slug;
 
 // Tagline court par service pour la grille de 7 cards
 const taglines: Record<string, string> = {
@@ -38,12 +39,12 @@ export default function ServiceSection() {
             return (
               <Link
                 key={s.id}
-                href={`/${s.slug}-${citySlug}/`}
+                href={`/${s.slug}-${defaultZoneSlug}/`}
                 className="group flex flex-col bg-[#F4F1EC] hover:bg-[#0E4F5C] rounded-[10px] overflow-hidden transition-colors"
               >
                 <div className="relative w-full h-[200px] md:h-[220px] overflow-hidden">
                   <Image
-                    src={`/images/gallery/${img}`}
+                    src={gal(img)}
                     alt={`${s.name} rideau métallique à Sète — DRM Sète`}
                     title={`${s.name} rideau métallique Sète`}
                     fill
