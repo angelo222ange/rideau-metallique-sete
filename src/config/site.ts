@@ -30,7 +30,7 @@ export const siteConfig = {
   rating: "4.9",
   ratingCount: "112",
   interventions: "5000+",
-  heroBg: "hero-grille-extensible.webp",
+  heroBg: "depannage-rideau-metallique-drm-france-rm.webp",
 };
 
 export const services = [

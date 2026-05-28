@@ -6,9 +6,9 @@ export default function HomepageSEOBlock1() {
       <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         <div className="relative w-full h-[320px] md:h-[420px] lg:h-[500px] rounded-[10px] overflow-hidden order-2 lg:order-1">
           <Image
-            src="/images/gallery/realisation-rideau-metallique-lame-pleine-commerce.webp"
-            alt="Rideau métallique lame pleine installé sur commerce centre-ville Sète"
-            title="Réalisation DRM Sète — rideau métallique lame pleine"
+            src="/images/gallery/realisation-rideau-metallique-lame-pleine-industriel-france.webp"
+            alt="Rideau métallique industriel installé sur entrepôt zone d'activité Sète"
+            title="Réalisation DRM Sète — rideau métallique industriel"
             fill
             sizes="(min-width: 1024px) 600px, 100vw"
             className="object-cover"

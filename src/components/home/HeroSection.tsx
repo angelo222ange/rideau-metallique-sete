@@ -19,16 +19,22 @@ export default function HeroSection() {
     <section className="relative w-full px-2 md:px-[10px] pt-2 md:pt-[10px]">
       <div className="relative w-full overflow-hidden rounded-[10px] min-h-[640px] md:min-h-[720px] lg:min-h-[760px]">
         <Image
-          src="/images/gallery/hero-grille-extensible.webp"
-          alt="Rideau métallique grille extensible installé sur un commerce à Sète"
-          title="Hero — Dépannage rideau métallique à Sète"
+          src={`/images/gallery/${siteConfig.heroBg}`}
+          alt="Technicien DRM Sète en intervention dépannage rideau métallique 24h/24"
+          title="Dépannage rideau métallique 24h/24 à Sète — intervention en 30 minutes"
           fill
           sizes="100vw"
           priority
           className="object-cover"
         />
+        {/* Overlay très sombre — lisibilité texte blanc garantie sur tout visuel */}
         <div
-          className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70"
+          className="absolute inset-0"
+          style={{ background: "rgba(10, 31, 38, 0.72)" }}
+          aria-hidden
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/65 to-black/90"
           aria-hidden
         />
 
@@ -38,11 +44,14 @@ export default function HeroSection() {
           </span>
           <h1
             className="text-white max-w-[860px] mx-auto"
-            style={{ fontWeight: 500 }}
+            style={{ fontWeight: 500, textShadow: "0 2px 12px rgba(0,0,0,0.6)" }}
           >
             Dépannage de rideau métallique à Sète — 24h/24, 7j/7
           </h1>
-          <p className="text-white/90 text-[16px] md:text-[18px] leading-[1.6] mt-6 max-w-[680px]">
+          <p
+            className="text-white text-[16px] md:text-[18px] leading-[1.6] mt-6 max-w-[680px]"
+            style={{ textShadow: "0 2px 8px rgba(0,0,0,0.55)" }}
+          >
             Rideau bloqué, moteur en panne, lame déformée ? Les techniciens DRM Sète interviennent en moins de 30 minutes sur Sète, Frontignan, Balaruc, Mèze, Marseillan, Agde et tout le Bassin de Thau.
           </p>
 
@@ -52,7 +61,7 @@ export default function HeroSection() {
               href={siteConfig.telephoneHref}
               className="inline-flex items-center justify-center h-12 px-6 bg-[#E8633E] hover:bg-[#C44A26] text-white text-[15px] font-medium rounded-[5px] transition-colors"
             >
-              Demander un devis
+              Appeler 04 48 14 12 98
             </Link>
             <Link
               href="#services"
@@ -79,8 +88,27 @@ export default function HeroSection() {
 
           {/* Form */}
           <form
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
+              const form = e.currentTarget;
+              const formData = new FormData(form);
+              const payload = Object.fromEntries(formData.entries());
+              try {
+                const url =
+                  process.env.NEXT_PUBLIC_WEBHOOK_URL ||
+                  "https://lioai.app.n8n.cloud/webhook/drm-contact";
+                await fetch(url, {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({
+                    ...payload,
+                    source: "hero-home",
+                    site: siteConfig.domain,
+                  }),
+                });
+              } catch {
+                // Echec reseau silencieux — l'utilisateur voit "Demande envoyee" et peut appeler.
+              }
               setSent(true);
             }}
             className="w-full max-w-[1100px] mt-8 md:mt-10 bg-white/15 backdrop-blur-md rounded-[10px] p-3 md:p-4"

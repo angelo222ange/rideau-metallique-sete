@@ -90,4 +90,4 @@ export function getRealisationForZone(zoneSlug: string, index = 0): string {
 }
 
 // Hero pool (anti-doublon entre sites DRM) — index attribué Phase 0
-export const heroBackground = "hero-grille-extensible.webp";
+export const heroBackground = "depannage-rideau-metallique-DRM-reparation.webp";

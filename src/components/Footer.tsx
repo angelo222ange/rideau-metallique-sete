@@ -35,13 +35,14 @@ export default function Footer() {
           {/* Col 1 — logo + tagline + social */}
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <span
-                aria-hidden
-                className="inline-flex items-center justify-center w-10 h-10 rounded-lg text-white text-[13px] font-bold tracking-wide"
-                style={{ background: "#E8633E", fontFamily: "var(--font-manrope)" }}
-              >
-                DRM
-              </span>
+              <img
+                src="/images/logos/drm-sete-logo.png"
+                alt="DRM Sète"
+                width={52}
+                height={52}
+                className="w-13 h-13 object-contain rounded-full bg-white p-1"
+                style={{ width: 52, height: 52 }}
+              />
               <span
                 className="text-[20px] font-bold text-white"
                 style={{ fontFamily: "var(--font-manrope)", letterSpacing: "-0.4px" }}
@@ -127,7 +128,7 @@ export default function Footer() {
               href={siteConfig.telephoneHref}
               className="inline-flex items-center justify-center h-11 px-5 bg-[#E8633E] hover:bg-[#C44A26] text-white text-[14px] font-medium rounded-[5px] transition-colors"
             >
-              Demander un devis gratuit
+              Appeler 04 48 14 12 98
             </Link>
           </div>
         </div>

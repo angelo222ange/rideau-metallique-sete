@@ -21,16 +21,16 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "DRM Sète — Dépannage Rideau Métallique 24h/24 · Bassin de Thau",
+    default: "Dépannage rideau métallique Sète (34200) 24h/24, 7j/7 | DRM Sète",
     template: "%s | DRM Sète",
   },
   description:
-    "Dépannage, installation, motorisation et réparation de rideaux métalliques à Sète et sur le Bassin de Thau. Intervention en moins de 30 minutes, 24h/24 et 7j/7, devis gratuit, garantie 2 ans pièces.",
+    "Dépannage, installation et motorisation de rideaux métalliques à Sète et sur le Bassin de Thau. Intervention 30 min, 24h/24, devis gratuit, garantie 2 ans.",
   alternates: {
     canonical: siteConfig.url,
   },
   openGraph: {
-    title: "DRM Sète — Dépannage Rideau Métallique 24h/24",
+    title: "Dépannage rideau métallique Sète (34200) 24h/24 — DRM Sète",
     description:
       "Intervention en moins de 30 minutes sur Sète, Frontignan, Balaruc, Mèze, Marseillan, Agde et tout le Bassin de Thau.",
     url: siteConfig.url,
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/gallery/hero-grille-extensible.webp",
+        url: "/images/gallery/depannage-rideau-metallique-drm-france-rm.webp",
         width: 1200,
         height: 630,
         alt: "Dépannage rideau métallique à Sète",
@@ -69,7 +69,7 @@ const localBusinessSchema = {
   name: siteConfig.fullName,
   alternateName: siteConfig.name,
   url: siteConfig.url,
-  image: `${siteConfig.url}/images/gallery/hero-grille-extensible.webp`,
+  image: `${siteConfig.url}/images/gallery/depannage-rideau-metallique-drm-france-rm.webp`,
   logo: `${siteConfig.url}/favicon.png`,
   description:
     "Spécialiste rideau métallique à Sète et sur le Bassin de Thau. Dépannage 24h/24, installation, motorisation, réparation, déblocage, entretien et fabrication.",
@@ -125,11 +125,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </head>
       <body>
         {children}
-        <Link href={siteConfig.telephoneHref} className="floating-cta-round" aria-label="Demander un devis">
+        <Link href={siteConfig.telephoneHref} className="floating-cta-round" aria-label="Appeler 04 48 14 12 98">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
           </svg>
-          Demander un devis
+          Appeler 04 48 14 12 98
         </Link>
       </body>
     </html>

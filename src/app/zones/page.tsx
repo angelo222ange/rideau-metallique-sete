@@ -59,6 +59,75 @@ export default function ZonesPage() {
                 </Link>
               ))}
             </div>
+
+            <div className="max-w-[820px] mx-auto mt-16 md:mt-20 flex flex-col gap-5">
+              <h3
+                className="text-[#0A1F26]"
+                style={{
+                  fontWeight: 500,
+                  fontFamily: "var(--font-manrope)",
+                  letterSpacing: "-1px",
+                  fontSize: "clamp(22px, 2.6vw, 28px)",
+                  lineHeight: 1.2,
+                }}
+              >
+                Comment nous organisons l&apos;intervention sur le Bassin de Thau
+              </h3>
+              <p className="text-[#4A5560] text-[16px] md:text-[17px] leading-[1.75]">
+                Notre dépôt central est situé à Sète, sur le boulevard Jean-Mathieu Grangent. Trois camions ateliers
+                équipés en pièces moteur (ACM, Somfy, Simu, Sommer), lames, ressorts et serrures, sillonnent en
+                permanence le département : un véhicule couvre l&apos;axe Sète–Frontignan–Vic-la-Gardiole, un autre
+                la rive sud Mèze–Bouzigues–Loupian–Poussan, et le troisième l&apos;axe Marseillan–Agde–Florensac.
+                Cette organisation nous permet de garantir une intervention en moins de 30 minutes sur les 26 communes
+                listées ci-dessus, 24h/24 et 7j/7.
+              </p>
+              <h3
+                className="text-[#0A1F26]"
+                style={{
+                  fontWeight: 500,
+                  fontFamily: "var(--font-manrope)",
+                  letterSpacing: "-1px",
+                  fontSize: "clamp(22px, 2.6vw, 28px)",
+                  lineHeight: 1.2,
+                }}
+              >
+                Une couverture pensée pour le tissu commercial du Bassin de Thau
+              </h3>
+              <p className="text-[#4A5560] text-[16px] md:text-[17px] leading-[1.75]">
+                Au-delà de Sète intra-muros (Centre, Mont Saint-Clair, Île de Thau, Quartier Haut, Pointe Courte), nous
+                desservons toutes les communes du Bassin de Thau et de la frange littorale Hérault. Cela inclut les
+                communes balnéaires (Marseillan-Plage, Vic-la-Gardiole, Frontignan-Plage), les villages conchylicoles
+                (Bouzigues, Loupian, Mèze), les zones rurales viticoles (Gigean, Poussan, Montbazin, Villeveyrac), les
+                franges périurbaines (Cournonsec, Cournonterral, Villeneuve-lès-Maguelone) et la zone Agde-Florensac-Pinet-Pomerols
+                au sud-ouest. Si votre commune n&apos;apparaît pas, appelez-nous : nous étudions au cas par cas les
+                interventions sur l&apos;Hérault élargi (Sérignan, Bessan, Marsillargues sur demande).
+              </p>
+              <h3
+                className="text-[#0A1F26]"
+                style={{
+                  fontWeight: 500,
+                  fontFamily: "var(--font-manrope)",
+                  letterSpacing: "-1px",
+                  fontSize: "clamp(22px, 2.6vw, 28px)",
+                  lineHeight: 1.2,
+                }}
+              >
+                Délais d&apos;intervention indicatifs
+              </h3>
+              <ul className="text-[#4A5560] text-[16px] leading-[1.75] list-disc pl-5">
+                <li>Sète et toutes les zones intra-muros : 15 à 25 minutes en horaires standards, 30 minutes la nuit</li>
+                <li>Frontignan, Balaruc-les-Bains, Balaruc-le-Vieux : 20 à 30 minutes</li>
+                <li>Mèze, Bouzigues, Loupian, Poussan : 25 à 40 minutes</li>
+                <li>Marseillan, Marseillan-Plage, Pinet, Pomerols : 30 à 45 minutes</li>
+                <li>Agde, Florensac : 35 à 50 minutes</li>
+                <li>Villeneuve-lès-Maguelone, Vic-la-Gardiole, Mireval, Gigean : 35 à 50 minutes</li>
+                <li>Cournonsec, Cournonterral, Montbazin, Villeveyrac : 40 à 55 minutes</li>
+              </ul>
+              <p className="text-[#4A5560] text-[16px] leading-[1.75]">
+                Pour toute urgence en dehors de ces zones, appelez-nous au {siteConfig.telephone}. Un technicien
+                évalue immédiatement la faisabilité et vous communique un délai ferme.
+              </p>
+            </div>
           </div>
         </section>
       </main>

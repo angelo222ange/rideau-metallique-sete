@@ -16,10 +16,10 @@ const reviews: Review[] = [
   {
     body:
       "Rideau métallique de notre bar à tapas bloqué un samedi soir à 23h. Le technicien DRM Sète était sur place 25 minutes après l'appel. Réparation propre du moteur ACM, prix annoncé respecté au centime près. Service au top.",
-    name: "Sophie Marquès",
+    name: "Mathieu Marquès",
     location: "Sète Centre · 34200",
     date: "Il y a 2 semaines",
-    avatar: { kind: "photo", src: "/images/avatars/reviewer-a.webp", alt: "Photo de profil Sophie Marquès" },
+    avatar: { kind: "photo", src: "/images/avatars/reviewer-a.webp", alt: "Photo de profil Mathieu Marquès" },
   },
   {
     body:
@@ -32,18 +32,18 @@ const reviews: Review[] = [
   {
     body:
       "Contrat d'entretien annuel signé pour nos 4 commerces (Mèze, Bouzigues, Loupian). Aucune panne en 3 ans, visite technique en novembre comme prévu, rapport écrit après chaque passage. L'équipe DRM Sète est réactive et professionnelle.",
-    name: "Claire Bonnafous",
+    name: "Bertrand Bonnafous",
     location: "Mèze · 34140",
     date: "Il y a 3 semaines",
-    avatar: { kind: "photo", src: "/images/avatars/reviewer-c.webp", alt: "Photo de profil Claire Bonnafous" },
+    avatar: { kind: "photo", src: "/images/avatars/reviewer-c.webp", alt: "Photo de profil Bertrand Bonnafous" },
   },
   {
     body:
       "Moteur ACM 76 remplacé en 2 heures sur notre restaurant en bord de plage à Marseillan. Pièce d'origine livrée scellée, garantie 2 ans. Tarif honnête après un premier devis astronomique d'un autre prestataire. Bravo DRM Sète.",
-    name: "Pierre Estève",
+    name: "Camille Estève",
     location: "Marseillan · 34340",
     date: "Il y a 1 mois",
-    avatar: { kind: "photo", src: "/images/avatars/reviewer-b.webp", alt: "Photo de profil Pierre Estève" },
+    avatar: { kind: "photo", src: "/images/avatars/reviewer-b.webp", alt: "Photo de profil Camille Estève" },
   },
   {
     body:

@@ -27,15 +27,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push({ url: `${base}/blog/${slug}/`, lastModified, changeFrequency: "monthly", priority: 0.5 });
   }
 
-  // Service × city principale (7 entries — priorité haute)
-  for (const s of services) {
-    entries.push({
-      url: `${base}/${s.slug}-${siteConfig.citySlug}/`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    });
-  }
+  // Service × city principale : EXCLUS du sitemap (cannibalisent la home — même keyword).
+  // Pages noindex + canonical home côté metadata. Cf. mémoire feedback_drm_cannibalisation_home_service.
 
   // Service × zone (7 × 26 = 182 entries)
   for (const s of services) {

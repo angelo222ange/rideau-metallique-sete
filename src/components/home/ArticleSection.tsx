@@ -3,14 +3,14 @@ import Link from "next/link";
 
 const articles = [
   {
-    img: "/images/gallery/entretien-rideau-metallique-drm-france.webp",
+    img: "/images/gallery/entretien-rideau-metallique-france-entretien.webp",
     title: "Entretenir un rideau métallique sur le littoral de Sète : 5 gestes essentiels",
     date: "12 mai 2026",
     slug: "entretenir-rideau-metallique-sete",
     alt: "Entretien d'un rideau métallique sur le littoral méditerranéen",
   },
   {
-    img: "/images/gallery/BI-Moteur-ACM-76-rideau-metallique.webp",
+    img: "/images/gallery/BI-Moteur-ACM-76-rideau-metallique-coter.webp",
     title: "Choisir entre un moteur ACM 76 et un Somfy tubulaire pour son commerce",
     date: "28 avril 2026",
     slug: "choisir-moteur-acm-somfy-rideau-metallique",

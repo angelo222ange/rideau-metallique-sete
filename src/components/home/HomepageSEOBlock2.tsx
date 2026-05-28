@@ -31,9 +31,9 @@ export default function HomepageSEOBlock2() {
 
         <div className="relative w-full h-[320px] md:h-[420px] lg:h-[500px] rounded-[10px] overflow-hidden">
           <Image
-            src="/images/gallery/installation-rideau-metallique-drm.webp"
-            alt="Installation rideau métallique sur commerce — équipe DRM Sète"
-            title="Installation rideau métallique — DRM Sète"
+            src="/images/gallery/installation-rideau-metallique-sur-mesure-france.webp"
+            alt="Installation rideau métallique sur-mesure DRM Sète — vitrine commerce centre-ville"
+            title="Installation sur-mesure DRM Sète"
             fill
             sizes="(min-width: 1024px) 600px, 100vw"
             className="object-cover"

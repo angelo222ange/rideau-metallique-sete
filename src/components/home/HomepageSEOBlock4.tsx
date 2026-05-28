@@ -32,15 +32,15 @@ export default function HomepageSEOBlock4() {
             href={siteConfig.telephoneHref}
             className="inline-flex items-center justify-center h-11 px-5 mt-2 bg-[#E8633E] hover:bg-[#C44A26] text-white text-[14px] font-medium rounded-[5px] transition-colors self-start"
           >
-            Demander un devis gratuit
+            Appeler 04 48 14 12 98
           </Link>
         </div>
 
         <div className="relative w-full h-[320px] md:h-[420px] lg:h-[500px] rounded-[10px] overflow-hidden">
           <Image
-            src="/images/gallery/entretien-rideau-metallique-drm-france.webp"
-            alt="Entretien préventif rideau métallique — air marin Méditerranée Sète"
-            title="Entretien rideau métallique — DRM Sète"
+            src="/images/gallery/entretien-rideau-metallique-rideau-de-fer.webp"
+            alt="Technicien DRM entretien rideau métallique — graissage axe et coulisses Sète"
+            title="Entretien préventif DRM Sète — air marin Méditerranée"
             fill
             sizes="(min-width: 1024px) 600px, 100vw"
             className="object-cover"

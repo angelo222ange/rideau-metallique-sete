@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { siteConfig, services } from "@/config/site";
+import { serviceImages } from "@/lib/page-images";
 
 const citySlug = siteConfig.citySlug;
 
@@ -16,15 +17,15 @@ const navLinks = [
 function Logo() {
   return (
     <div className="flex items-center gap-3">
+      <img
+        src="/images/logos/drm-sete-logo.png"
+        alt="DRM Sète"
+        width={44}
+        height={44}
+        className="w-11 h-11 object-contain"
+      />
       <span
-        aria-hidden
-        className="inline-flex items-center justify-center w-9 h-9 rounded-lg text-white text-[12px] font-bold tracking-wide"
-        style={{ background: "#0E4F5C", fontFamily: "var(--font-manrope)" }}
-      >
-        DRM
-      </span>
-      <span
-        className="text-[18px] font-bold"
+        className="text-[18px] font-bold hidden sm:inline"
         style={{ color: "#0A1F26", fontFamily: "var(--font-manrope)", letterSpacing: "-0.4px" }}
       >
         DRM Sète
@@ -39,6 +40,18 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-black/5">
+      {/* Topbar urgence — visible toutes tailles, conversion mobile */}
+      <Link
+        href={siteConfig.telephoneHref}
+        className="flex items-center justify-center gap-2 bg-[#0A2A33] text-white text-[13px] md:text-[14px] py-2 px-4 hover:bg-[#093945] transition-colors"
+        style={{ color: "#FFFFFF" }}
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+        </svg>
+        <span className="font-semibold">Urgence 24h/24 — {siteConfig.phone}</span>
+        <span className="hidden sm:inline text-white/70">— intervention 30 min Bassin de Thau</span>
+      </Link>
       <div className="flex items-center justify-between h-[76px] px-5 md:px-10">
         <Link href="/" aria-label="DRM Sète — Accueil">
           <Logo />
@@ -66,18 +79,39 @@ export default function Header() {
             </button>
             <div
               className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
-              style={{ minWidth: 280 }}
+              style={{ minWidth: 420 }}
             >
-              <div className="bg-white rounded-[8px] shadow-xl border border-black/5 py-2">
-                {services.map((s) => (
-                  <Link
-                    key={s.id}
-                    href={`/${s.slug}-${citySlug}/`}
-                    className="block px-5 py-2.5 text-[14px] text-[#0A1F26] hover:bg-[#F4F1EC] hover:text-[#E8633E] transition-colors"
-                  >
-                    {s.name} — rideau métallique
-                  </Link>
-                ))}
+              <div className="bg-white rounded-[10px] shadow-2xl border border-black/5 p-2">
+                <div className="grid grid-cols-1 gap-0.5">
+                  {services.map((s) => {
+                    const img = serviceImages[s.id]?.hero || "depannage-rideau-metallique-DRM-reparation.webp";
+                    return (
+                      <Link
+                        key={s.id}
+                        href={`/${s.slug}-${citySlug}/`}
+                        className="group/item flex items-center gap-3 px-3 py-2.5 rounded-[8px] hover:bg-[#F4F1EC] transition-colors"
+                      >
+                        <span
+                          className="flex-shrink-0 w-12 h-12 rounded-[6px] overflow-hidden bg-[#F4F1EC]"
+                          style={{
+                            backgroundImage: `url(/images/gallery/${img})`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                          }}
+                          aria-hidden
+                        />
+                        <span className="flex flex-col min-w-0">
+                          <span className="text-[14px] font-semibold text-[#0A1F26] group-hover/item:text-[#E8633E] transition-colors">
+                            {s.name}
+                          </span>
+                          <span className="text-[12px] text-[#4A5560] truncate">
+                            {s.shortDescription}
+                          </span>
+                        </span>
+                      </Link>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
@@ -93,12 +127,21 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center">
+        <div className="hidden md:flex items-center gap-2">
+          <Link
+            href="/contact/"
+            className="inline-flex items-center justify-center h-11 px-5 bg-[#0E4F5C] hover:bg-[#093945] text-white text-[14px] font-medium rounded-[5px] transition-colors"
+          >
+            Devis gratuit
+          </Link>
           <Link
             href={siteConfig.telephoneHref}
-            className="inline-flex items-center justify-center h-11 px-5 bg-[#E8633E] hover:bg-[#C44A26] text-white text-[14px] font-medium rounded-[5px] transition-colors"
+            className="inline-flex items-center justify-center gap-2 h-11 px-5 bg-[#E8633E] hover:bg-[#C44A26] text-white text-[14px] font-semibold rounded-[5px] transition-colors"
           >
-            Demander un devis
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            04 48 14 12 98
           </Link>
         </div>
 
@@ -161,11 +204,21 @@ export default function Header() {
             ))}
 
             <Link
+              href="/contact/"
+              onClick={() => setOpen(false)}
+              className="inline-flex items-center justify-center h-11 px-5 bg-[#0E4F5C] text-white text-[14px] font-medium rounded-[5px] mt-3"
+            >
+              Devis gratuit
+            </Link>
+            <Link
               href={siteConfig.telephoneHref}
               onClick={() => setOpen(false)}
-              className="inline-flex items-center justify-center h-11 px-5 bg-[#E8633E] text-white text-[14px] font-medium rounded-[5px] mt-3"
+              className="inline-flex items-center justify-center gap-2 h-11 px-5 bg-[#E8633E] text-white text-[14px] font-semibold rounded-[5px] mt-2"
             >
-              Demander un devis
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              04 48 14 12 98
             </Link>
           </nav>
         </div>

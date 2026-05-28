@@ -20,9 +20,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = posts.find((p) => p.slug === slug);
   if (!post) return { title: "Article introuvable" };
+  const seoTitle = post.metaTitle ?? post.title;
+  const seoDesc = post.metaDescription ?? post.excerpt;
   return {
-    title: post.title,
-    description: post.excerpt,
+    title: seoTitle,
+    description: seoDesc.slice(0, 170),
     alternates: { canonical: `${siteConfig.url}/blog/${post.slug}/` },
     openGraph: {
       title: post.title,
@@ -139,7 +141,7 @@ export default async function BlogDetailPage({
                 href={siteConfig.telephoneHref}
                 className="inline-flex items-center justify-center h-11 px-5 bg-[#E8633E] hover:bg-[#C44A26] text-white text-[14px] font-medium rounded-[5px] transition-colors whitespace-nowrap"
               >
-                Demander un devis
+                Appeler 04 48 14 12 98
               </Link>
             </div>
           </article>

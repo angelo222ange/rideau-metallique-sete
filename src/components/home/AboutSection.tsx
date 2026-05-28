@@ -22,9 +22,9 @@ export default function AboutSection() {
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
           <div className="relative w-full h-[280px] md:h-[380px] lg:h-[460px] rounded-[10px] overflow-hidden">
             <Image
-              src="/images/gallery/realisation-rideau-metallique-lame-pleine-commerce.webp"
-              alt="Réalisation DRM Sète — rideau métallique lame pleine sur commerce centre-ville"
-              title="Réalisation DRM Sète — commerce centre Sète"
+              src="/images/gallery/realisation-rideau-metallique-lame-pleine.webp"
+              alt="Atelier DRM Sète — installation rideau métallique sur-mesure Bassin de Thau"
+              title="Équipe DRM Sète — installation sur-mesure"
               fill
               sizes="(min-width: 1024px) 600px, 100vw"
               className="object-cover"

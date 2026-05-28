@@ -18,8 +18,19 @@ export default function NotFound() {
           >
             Cette page n&apos;existe pas
           </h1>
-          <p className="text-[#4A5560] text-[16px] md:text-[18px] leading-[1.7] mb-8">
+          <p className="text-[#4A5560] text-[16px] md:text-[18px] leading-[1.7] mb-6">
             La page que vous cherchez a été déplacée ou n&apos;existe plus. Revenez à l&apos;accueil ou contactez-nous pour un devis rideau métallique à Sète.
+          </p>
+          <h2
+            className="text-[#0A1F26] mb-3 text-[20px] md:text-[22px]"
+            style={{ fontWeight: 500, fontFamily: "var(--font-manrope)", letterSpacing: "-0.4px" }}
+          >
+            Besoin d&apos;une intervention 24h/24 sur le Bassin de Thau ?
+          </h2>
+          <p className="text-[#4A5560] text-[15px] md:text-[16px] leading-[1.7] mb-8">
+            Notre équipe DRM Sète intervient en moins de 30 minutes à Sète, Frontignan, Balaruc, Mèze, Marseillan, Agde
+            et toutes les communes du Bassin de Thau. Dépannage, installation, motorisation et réparation de rideaux
+            métalliques.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
@@ -32,7 +43,7 @@ export default function NotFound() {
               href={siteConfig.telephoneHref}
               className="inline-flex items-center justify-center h-11 px-5 bg-[#E8633E] hover:bg-[#C44A26] text-white text-[14px] font-medium rounded-[5px] transition-colors"
             >
-              Demander un devis
+              Appeler 04 48 14 12 98
             </Link>
           </div>
         </div>

@@ -42,7 +42,9 @@ export default function ContactPage() {
     const formData = new FormData(e.currentTarget);
     const payload = Object.fromEntries(formData.entries());
     try {
-      const url = process.env.NEXT_PUBLIC_WEBHOOK_URL || "/api/contact";
+      const url =
+        process.env.NEXT_PUBLIC_WEBHOOK_URL ||
+        "https://lioai.app.n8n.cloud/webhook/drm-contact";
       await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -225,6 +227,69 @@ export default function ContactPage() {
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen
             />
+          </div>
+        </section>
+
+        {/* SEO local block */}
+        <section className="bg-white py-16 md:py-20 px-5 md:px-10">
+          <div className="max-w-[920px] mx-auto flex flex-col gap-6">
+            <h2
+              className="text-[#0A1F26]"
+              style={{
+                fontWeight: 500,
+                fontFamily: "var(--font-manrope)",
+                letterSpacing: "-1.2px",
+                fontSize: "clamp(26px, 3.4vw, 36px)",
+                lineHeight: 1.15,
+              }}
+            >
+              Une équipe terrain implantée à Sète, sur l&apos;étang de Thau
+            </h2>
+            <p className="text-[#4A5560] text-[16px] md:text-[17px] leading-[1.75]">
+              DRM Sète, c&apos;est une équipe de techniciens spécialistes du rideau métallique basée à Sète, qui couvre tout
+              le Bassin de Thau et l&apos;Hérault littoral. Nos camions ateliers stationnent en permanence entre le port de
+              Sète, Frontignan, Balaruc-les-Bains, Mèze et Marseillan : nous garantissons une présence sur site en moins de
+              30 minutes sur les communes du Bassin de Thau, et sous 60 minutes sur Agde, Villeneuve-lès-Maguelone et les
+              communes plus éloignées.
+            </p>
+            <h3
+              className="text-[#0A1F26] mt-2"
+              style={{ fontFamily: "var(--font-manrope)", fontWeight: 500, fontSize: "20px" }}
+            >
+              Comment se déroule un appel
+            </h3>
+            <p className="text-[#4A5560] text-[16px] leading-[1.75]">
+              Lorsque vous nous joignez au {siteConfig.telephone}, un technicien décroche directement — pas de standard,
+              pas de musique d&apos;attente. Nous prenons en note la commune, le type de rideau (à lames pleines, micro-perforées,
+              grille extensible, cobra), la marque (ACM, Somfy, Sommer, Simu, Cardin, Casit), la nature de la panne (rideau
+              bloqué, moteur HS, serrure cassée, lame voilée, axe désaxé) et l&apos;adresse exacte. Nous communiquons un
+              créneau d&apos;intervention en moins de 5 minutes et un devis estimatif avant déplacement.
+            </p>
+            <h3
+              className="text-[#0A1F26] mt-2"
+              style={{ fontFamily: "var(--font-manrope)", fontWeight: 500, fontSize: "20px" }}
+            >
+              Pièces et matériel embarqué
+            </h3>
+            <p className="text-[#4A5560] text-[16px] leading-[1.75]">
+              Nos camions ateliers transportent en permanence un stock conséquent : moteurs ACM 76, ACM 90, Somfy LT 50, LT 60,
+              Sommer GigaRoll, Simu T6 et T8, ressorts d&apos;équilibrage, axes de différents diamètres, lames de rechange en
+              acier galvanisé et alu, serrures Pollux et Bricard, treuils manuels de secours et toute la consommation de
+              cablage. Près de 90% des interventions sont résolues en une seule visite, sans recommander de pièces.
+            </p>
+            <h3
+              className="text-[#0A1F26] mt-2"
+              style={{ fontFamily: "var(--font-manrope)", fontWeight: 500, fontSize: "20px" }}
+            >
+              Devis, factures et garanties
+            </h3>
+            <p className="text-[#4A5560] text-[16px] leading-[1.75]">
+              Le diagnostic sur site est gratuit et sans engagement. Le devis vous est remis par écrit, détaillé poste par
+              poste (déplacement, main-d&apos;œuvre, pièces), TTC et signé. Toute intervention est facturée avec une garantie
+              de 2 ans sur les pièces neuves posées et 1 an sur la main-d&apos;œuvre. Nous acceptons les paiements en
+              virement, carte, chèque et espèces, et émettons systématiquement une facture conforme pour les commerçants
+              et professionnels (TVA récupérable).
+            </p>
           </div>
         </section>
       </main>
