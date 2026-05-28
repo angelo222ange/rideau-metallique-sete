@@ -185,13 +185,6 @@ export default async function ServiceZonePage({
       priceCurrency: "EUR",
       areaServed: zoneName,
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: siteConfig.rating,
-      reviewCount: siteConfig.ratingCount,
-      bestRating: "5",
-      worstRating: "1",
-    },
   };
 
   const faqSchema = {
